@@ -22,9 +22,9 @@ const Table = ({ students, onDataUpdate }) => {
       late: false,
       homework: true,
       initialActivity: true,
-      lab1: true,
-      lab2: true,
-      lab3: true,
+      lap1: true,
+      lap2: true,
+      lap3: true,
       notes: '',
     }));
     setStudentData(initialData);
@@ -92,7 +92,7 @@ const Table = ({ students, onDataUpdate }) => {
   /**
    * Calculates points missing for a student
    * Returns the total points lost based on unchecked boxes
-   * Updated to exclude Lab 4
+   * Updated to exclude Lap 4
    */
   const calculatePointsMissing = (student) => {
     let missing = 0;
@@ -101,9 +101,9 @@ const Table = ({ students, onDataUpdate }) => {
     if (!student.initialActivity && (student.present || student.late)) missing += 5;
 
     if ((student.present || student.late)) {
-      if (!student.lab1) missing += 10;
-      if (!student.lab2) missing += 10;
-      if (!student.lab3) missing += 10;
+      if (!student.lap1) missing += 10;
+      if (!student.lap2) missing += 10;
+      if (!student.lap3) missing += 10;
     }
 
     return missing;
@@ -128,7 +128,7 @@ const Table = ({ students, onDataUpdate }) => {
       return !hasAttendance || student.late;
     }
 
-    if (['lab1', 'lab2', 'lab3'].includes(field)) {
+    if (['lap1', 'lap2', 'lap3'].includes(field)) {
       return !hasAttendance;
     }
 
@@ -146,9 +146,9 @@ const Table = ({ students, onDataUpdate }) => {
               <th className="attendance-col" title="Late - Enables all except Initial Activity">T</th>
               <th title="Homework - 5 points">H</th>
               <th title="Initial Activity - 5 points">D</th>
-              <th title="Lab 1 - 10 points">Lab 1</th>
-              <th title="Lab 2 - 10 points">Lab 2</th>
-              <th title="Lab 3 - 10 points">Lab 3</th>
+              <th title="Lap 1 - 10 points">Lap 1</th>
+              <th title="Lap 2 - 10 points">Lap 2</th>
+              <th title="Lap 3 - 10 points">Lap 3</th>
               <th className="points-col">Points Missing</th>
               <th className="result-col">Result</th>
               <th className="notes-col">Notes</th>
@@ -203,27 +203,27 @@ const Table = ({ students, onDataUpdate }) => {
                   <td>
                     <input
                       type="checkbox"
-                      checked={student.lab1}
-                      onChange={() => handleCheckboxChange(index, 'lab1')}
-                      disabled={isDisabled(student, 'lab1')}
+                      checked={student.lap1}
+                      onChange={() => handleCheckboxChange(index, 'lap1')}
+                      disabled={isDisabled(student, 'lap1')}
                       className="checkbox"
                     />
                   </td>
                   <td>
                     <input
                       type="checkbox"
-                      checked={student.lab2}
-                      onChange={() => handleCheckboxChange(index, 'lab2')}
-                      disabled={isDisabled(student, 'lab2')}
+                      checked={student.lap2}
+                      onChange={() => handleCheckboxChange(index, 'lap2')}
+                      disabled={isDisabled(student, 'lap2')}
                       className="checkbox"
                     />
                   </td>
                   <td>
                     <input
                       type="checkbox"
-                      checked={student.lab3}
-                      onChange={() => handleCheckboxChange(index, 'lab3')}
-                      disabled={isDisabled(student, 'lab3')}
+                      checked={student.lap3}
+                      onChange={() => handleCheckboxChange(index, 'lap3')}
+                      disabled={isDisabled(student, 'lap3')}
                       className="checkbox"
                     />
                   </td>

@@ -3,7 +3,7 @@ import * as XLSX from 'xlsx';
 /**
  * Export Data Utility
  * Handles exporting student evaluation data to CSV and XLSX formats
- * Updated to exclude Lab 4 and include Notes column
+ * Updated to exclude Lap 4 and include Notes column
  */
 
 /**
@@ -20,7 +20,7 @@ const getFormattedDate = () => {
 
 /**
  * Calculates points missing for a student
- * Updated to exclude Lab 4
+ * Updated to exclude Lap 4
  * @param {Object} student - Student data object
  * @returns {number} - Total points missing
  */
@@ -31,9 +31,9 @@ const calculatePointsMissing = (student) => {
   if (!student.initialActivity && (student.present || student.late)) missing += 5;
 
   if (student.present || student.late) {
-    if (!student.lab1) missing += 10;
-    if (!student.lab2) missing += 10;
-    if (!student.lab3) missing += 10;
+    if (!student.lap1) missing += 10;
+    if (!student.lap2) missing += 10;
+    if (!student.lap3) missing += 10;
   }
 
   return missing;
@@ -57,7 +57,7 @@ const boolToMark = (value) => value ? 'X' : '';
 
 /**
  * Prepares data for export
- * Updated to exclude Lab 4 and include Notes
+ * Updated to exclude Lap 4 and include Notes
  * FIXED: Now properly exports P and T columns
  * @param {Array} studentData - Array of student objects
  * @returns {Array} - Array of objects ready for export
@@ -70,9 +70,9 @@ const prepareExportData = (studentData) => {
       'T': boolToMark(student.late),
       'H': boolToMark(student.homework),
       'D': boolToMark(student.initialActivity),
-      'Lab 1': boolToMark(student.lab1),
-      'Lab 2': boolToMark(student.lab2),
-      'Lab 3': boolToMark(student.lab3),
+      'Lap 1': boolToMark(student.lap1),
+      'Lap 2': boolToMark(student.lap2),
+      'Lap 3': boolToMark(student.lap3),
       'Points Missing': calculatePointsMissing(student),
       'Result': calculateResult(student),
       'Notes': student.notes || ''
@@ -124,9 +124,9 @@ export const exportToXLSX = (studentData, groupName) => {
     { wch: 5 },  // T
     { wch: 5 },  // H
     { wch: 5 },  // D
-    { wch: 8 },  // Lab 1
-    { wch: 8 },  // Lab 2
-    { wch: 8 },  // Lab 3
+    { wch: 8 },  // Lap 1
+    { wch: 8 },  // Lap 2
+    { wch: 8 },  // Lap 3
     { wch: 15 }, // Points Missing
     { wch: 10 }, // Result
     { wch: 30 }  // Notes
