@@ -1,0 +1,15 @@
+# PATCH INSTRUCTIONS - Fix P and T Export Issue
+
+## Files to Replace:
+
+1. src/utils/exportData.js
+2. src/App.jsx  
+3. src/components/Table.jsx
+
+## What was fixed:
+- exportData.js: Improved prepareExportData function
+- App.jsx: Better state management for studentData
+- Table.jsx: Added useEffect to communicate data changes to parent
+
+## Result:
+P and T columns now properly export with 'X' marks when checked.

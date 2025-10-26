@@ -1,0 +1,205 @@
+.table-container {
+  margin-top: 30px;
+  overflow-x: auto;
+}
+
+.table-wrapper {
+  min-width: 100%;
+  overflow-x: auto;
+}
+
+.evaluation-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.evaluation-table thead {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.evaluation-table th {
+  padding: 16px 12px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 0.95rem;
+  white-space: nowrap;
+  cursor: help;
+}
+
+.evaluation-table td {
+  padding: 14px 12px;
+  text-align: center;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.evaluation-table tbody tr {
+  transition: background-color 0.2s ease;
+}
+
+.evaluation-table tbody tr:hover {
+  background-color: #f8f9ff;
+}
+
+.sticky-col {
+  position: sticky;
+  left: 0;
+  background: white;
+  z-index: 10;
+  text-align: left !important;
+  font-weight: 600;
+  box-shadow: 2px 0 4px rgba(0, 0, 0, 0.05);
+  min-width: 180px;
+}
+
+.evaluation-table thead .sticky-col {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  z-index: 11;
+}
+
+.student-name {
+  color: #333;
+  font-size: 0.95rem;
+}
+
+.attendance-col {
+  background-color: #fff8e1;
+}
+
+.evaluation-table thead .attendance-col {
+  background-color: rgba(255, 248, 225, 0.3);
+}
+
+.points-col {
+  font-weight: 600;
+  background-color: #fff3e0;
+}
+
+.evaluation-table thead .points-col {
+  background-color: rgba(255, 243, 224, 0.3);
+}
+
+.result-col {
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.pass {
+  color: #4caf50;
+}
+
+.fail {
+  color: #f44336;
+}
+
+.points-missing {
+  color: #ff6b6b;
+}
+
+.checkbox {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  accent-color: #667eea;
+}
+
+.checkbox:disabled {
+  cursor: not-allowed;
+  opacity: 0.3;
+}
+
+.notes-col {
+  min-width: 200px;
+  background-color: #f0f4ff;
+}
+
+.evaluation-table thead .notes-col {
+  background-color: rgba(240, 244, 255, 0.3);
+}
+
+.notes-input {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  font-family: inherit;
+  transition: all 0.2s ease;
+  background: white;
+}
+
+.notes-input:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.1);
+}
+
+.notes-input::placeholder {
+  color: #999;
+  font-style: italic;
+}
+
+@media (max-width: 1024px) {
+  .evaluation-table {
+    font-size: 0.85rem;
+  }
+
+  .evaluation-table th,
+  .evaluation-table td {
+    padding: 10px 8px;
+  }
+
+  .sticky-col {
+    min-width: 140px;
+  }
+
+  .checkbox {
+    width: 18px;
+    height: 18px;
+  }
+
+  .notes-col {
+    min-width: 180px;
+  }
+
+  .notes-input {
+    font-size: 0.85rem;
+    padding: 6px 8px;
+  }
+}
+
+@media (max-width: 768px) {
+  .table-container {
+    margin-top: 20px;
+  }
+
+  .evaluation-table {
+    font-size: 0.8rem;
+  }
+
+  .evaluation-table th,
+  .evaluation-table td {
+    padding: 8px 6px;
+  }
+
+  .sticky-col {
+    min-width: 120px;
+  }
+
+  .result-col {
+    font-size: 1rem;
+  }
+
+  .notes-col {
+    min-width: 160px;
+  }
+
+  .notes-input {
+    font-size: 0.8rem;
+    padding: 6px;
+  }
+}
